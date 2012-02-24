@@ -12,7 +12,7 @@ if defined?(RSpec) && defined?(RSpec::Matchers)
 
   RSpec.configure do |config|
     config.merimee_config = Merimee::Config.new
-    config.extend Merimee::Rspec::ViewCheckerHelper, :type => :view
+    config.extend Merimee::Rspec::ViewCheckerHelper
   end
 end
 
