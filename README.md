@@ -16,16 +16,23 @@ The config object has the following methods/arguments :
 
 ```ruby
 Merime::Checker.new do |config|
-  config.dict_add 'OHAI' # Ignore OHAI spelling errors. This is case sensitive for now, feel free to tell me if you feel it shouldn't be the case.
+  # Ignore OHAI spelling errors. This is case sensitive for now, feel free to tell me if you feel it shouldn't be the case.
+  config.dict_add 'OHAI' 
   config.dict_add %w{Trealiu Chtulu} # Ignore other words, method takes any enumerable too !
-  config.dict_add_file 'blah.txt' # Ignore all words from blah.txt, one per line
-  config.language = 'en' # English by default, but AfterTheDeadline also supports French(fr), Spanish(es), German(de), Portuguese(pt)
+
+  # Ignore all words contained in blah.txt, one per line
+  config.dict_add_file 'blah.txt'
+
+  # English by default, but AfterTheDeadline also supports French(fr), Spanish(es), German(de), Portuguese(pt)
+  config.language = 'en' 
+
   # AtD says that you should provide a key, unique per use. You don't need to register/get it, but
   # you can't have more than one request on their servers at the same time with the same key.
   # Since merimee is intended for test mode, it should be fine.
-  config.api_key = 'blah' # See AtD documentation here : it's not needed, the gem is smart enough, especially in test mode
+  config.api_key = 'blah' 
   
-  config.ignore_types << 'spelling' # You can ignore some types of errors.
+  # You can ignore some types of errors.
+  config.ignore_types << 'spelling' 
 end
 ```
 
@@ -69,7 +76,8 @@ end
 #### Configuration with RSpec
 You can still modify your config within RSpec :
 
-```ruby In your spec_helper.rb
+```ruby
+#In your spec_helper.rb
 require 'merimee'
 
 RSpec.configure do |config|
