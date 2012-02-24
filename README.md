@@ -2,7 +2,7 @@
 
 > Pour parler sans ambiguïté, ce dîner à Sainte-Adresse, près du Havre, malgré les effluves embaumés de la mer, malgré les vins de très bons crus, les cuisseaux de veau et les cuissots de chevreuil prodigués par l’amphitryon, fut un vrai guêpier.
 
-_merimee_ adds some `rspec` macros (`Test::Case` to come ... maybe) to add automatic spell checking to your tests.
+_merimee_ adds some rspec macros (Test::Case to come ... maybe) to add automatic spell checking to your tests.
 
 ## Install
 
@@ -13,7 +13,8 @@ gem 'merimee'
 ## Configuration
 
 The config object has the following methods/arguments :
-```
+
+```ruby
 Merime::Checker.new do |config|
   config.dict_add 'OHAI' # Ignore OHAI spelling errors. This is case sensitive for now, feel free to tell me if you feel it shouldn't be the case.
   config.dict_add %w{Trealiu Chtulu} # Ignore other words, method takes any enumerable too !
