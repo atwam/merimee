@@ -1,4 +1,5 @@
 # merimee
+[![Build Status](https://secure.travis-ci.org/atwam/merimee.png)](http://travis-ci.org/atwam/merimee)
 
 > Pour parler sans ambiguïté, ce dîner à Sainte-Adresse, près du Havre, malgré les effluves embaumés de la mer, malgré les vins de très bons crus, les cuisseaux de veau et les cuissots de chevreuil prodigués par l’amphitryon, fut un vrai guêpier.
 
