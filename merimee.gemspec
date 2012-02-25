@@ -5,7 +5,7 @@ require "merimee/version"
 Gem::Specification.new do |s|
   s.name        = "merimee"
   s.version     = Merimee::VERSION
-  s.authors     = ["coutud"]
+  s.authors     = ["atwam"]
   s.email       = ["wam@atwam.com"]
   s.homepage    = ""
   s.summary     = %q{Add spell checking to your views tests/specs}
