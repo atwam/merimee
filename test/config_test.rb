@@ -6,8 +6,8 @@ class ConfigTest < MiniTest::Unit::TestCase
     @config = Merimee::Config.new
   end
 
-  def test_ignore_type_not_empty_by_default
-    refute_empty @config.ignore_types
+  def test_some_types_ignored_by_default
+    assert @config.severity.any? {|k,v| v == :ignore }
   end
 
   def test_add_dict_with_word

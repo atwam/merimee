@@ -13,15 +13,18 @@ module Merimee
       AfterTheDeadline.key = @config.api_key
       errors = AfterTheDeadline.check(text)
       
-      # Remove any error types we don't care about
-      errors.reject! { |e| @config.ignore_types.include?(e.description) }
-
       # Remove spelling errors from our custom dictionary
       # Also remove stuff that is obviously not a word (AtD seems to have issues sometime)
       errors.reject! do |e|
         e.type == 'spelling' &&
           @config.dictionary.include?(e.string)
       end
+
+      # Remove any error types we don't care about
+      errors.each do |err|
+        err.severity = @config.severity[err.description.downcase] || :error
+      end
+
       errors
     end
 

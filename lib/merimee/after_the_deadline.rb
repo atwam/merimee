@@ -53,7 +53,7 @@ class AfterTheDeadline
   private_class_method :perform
 end
 
-class AfterTheDeadline::Error
+class AfterTheDeadline::Error < Merimee::Error
   attr_reader :string, :description, :precontext, :type, :suggestions, :url
 
   def initialize(hash)

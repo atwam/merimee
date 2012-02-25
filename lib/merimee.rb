@@ -2,6 +2,7 @@ require "merimee/version"
 
 require "merimee/checker"
 require "merimee/config"
+require "merimee/error"
 require "merimee/after_the_deadline"
 
 require 'merimee/railties/merimee_railtie.rb' if defined?(Rails)

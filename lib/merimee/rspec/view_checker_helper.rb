@@ -1,22 +1,28 @@
 module Merimee
   module Rspec
     module ViewCheckerHelper
-      RSpec::Matchers.define :have_a_correct_spelling do
-        match do |rendered|
-          checker = Merimee::Checker.new(::RSpec.configuration.merimee_config)
+      class HaveACorrectSpellingMatcher
+        def initialize
+          @config = ::RSpec.configuration.merimee_config
+          yield @config if block_given?
+        end
+
+        def matches?(rendered)
+          checker = Merimee::Checker.new(@config)
 
           if rendered
             @errors = checker.check(rendered)
-            @errors.empty?
+            @errors.none? {|e| e.severity == :error}
           else
             true
           end
         end
-        failure_message_for_should do |view|
+
+        def failure_message_for_should
           errs = []
-          @errors.each do |err|
-            message = "[#{err.type}] #{err.string}"
-            if err.suggestions
+          @errors.sort_by(&:severity).each do |err|
+            message = "[#{err.severity} : #{err.type} - #{err.description}] #{err.string}"
+            unless err.suggestions.empty?
               message << " (suggested: #{err.suggestions.join(', ')})"
             end
             errs << message
@@ -25,10 +31,10 @@ module Merimee
         end
       end
 
-      def it_should_have_a_correct_spelling
+      def it_should_have_a_correct_spelling(&block)
         it "should have a correct spelling" do
           render
-          rendered.should have_a_correct_spelling
+          rendered.should HaveACorrectSpellingMatcher.new(&block)
         end
       end
     end
