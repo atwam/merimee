@@ -8,7 +8,10 @@ _merimee_ adds some rspec macros (Test::Case to come ... maybe) to add automatic
 ## Install
 
 ```
-gem 'merimee'
+# :require => false is important here.
+# If not, merimee may not hook properly if it's loaded before rspec-rails
+# You'll require it in your spec_helper.rb manually
+gem 'merimee', :require => false
 ```
 
 ## Usage
