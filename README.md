@@ -7,6 +7,7 @@ _merimee_ adds some rspec macros (Test::Case to come ... maybe) to add automatic
 
 ## Install
 
+In your `Gemfile`
 ```
 # :require => false is important here.
 # If not, merimee may not hook properly if it's loaded before rspec-rails
