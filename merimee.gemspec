@@ -5,9 +5,10 @@ require "merimee/version"
 Gem::Specification.new do |s|
   s.name        = "merimee"
   s.version     = Merimee::VERSION
+  s.date        = Time.now.utc.strftime("%Y-%m-%d")
   s.authors     = ["atwam"]
   s.email       = ["wam@atwam.com"]
-  s.homepage    = ""
+  s.homepage    = "http://github.com/atwam/#{s.name}"
   s.summary     = %q{Add spell checking to your views tests/specs}
   s.description = %q{Automatically submit your rendered views to AfterTheDeadline free spell check service, and make sure you don't have any errors in your views !}
 
@@ -23,6 +24,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec-rails'
   # s.add_development_dependency "rspec"
   # s.add_runtime_dependency "rest-client"
 end
