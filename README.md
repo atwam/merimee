@@ -107,7 +107,7 @@ end
 
 ## Known issues
 
-See http://github.com/coutud/merimee/issues
+See https://github.com/atwam/merimee/issues
 Feel free to fork, send request (especially for Test::Case ... I'm a bit lazy for that).
 
 ## License
